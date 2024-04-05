@@ -1,5 +1,9 @@
-export default function Results() {
-  //table to show results
+export default function Results({
+  initialInvestment,
+  annualInvestment,
+  returns,
+  duration,
+}) {
   return (
     <div>
       <table id="result">
