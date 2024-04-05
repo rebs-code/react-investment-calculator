@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import UserInput from "./components/UserInput";
+import Results from "./components/Results";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Header />
       <main>
         <UserInput />
+        <Results />
       </main>
     </>
   );
