@@ -1,50 +1,48 @@
-import React from "react";
-
-export default function UserInput({
-  setInitialInvestment,
-  setAnnualInvestment,
-  setReturns,
-  setDuration,
-}) {
-  // Event handlers
-  const handleDurationChange = (event) => {
-    setDuration(event.target.value);
-  };
-
-  const handleInitialInvestmentChange = (event) => {
-    setInitialInvestment(event.target.value);
-  };
-
-  const handleAnnualInvestmentChange = (event) => {
-    setAnnualInvestment(event.target.value);
-  };
-
-  const handleReturnsChange = (event) => {
-    setReturns(event.target.value);
-  };
-
-  //how can  i pass these values to the results component?
-
+export default function UserInput({ onChange, userInput }) {
   return (
-    <div id="user-input">
-      <form>
-        <label htmlFor="initial-investment">Initial Investment</label>
-        <input
-          type="number"
-          id="initial-investment"
-          onChange={handleInitialInvestmentChange}
-        />
-        <label htmlFor="annual-investment">Annual Investment</label>
-        <input
-          type="number"
-          id="annual-investment"
-          onChange={handleAnnualInvestmentChange}
-        />
-        <label htmlFor="returns">Expected Return</label>
-        <input type="number" id="returns" onChange={handleReturnsChange} />
-        <label htmlFor="duration">Duration</label>
-        <input type="number" id="duration" onChange={handleDurationChange} />
-      </form>
-    </div>
+    <section id="user-input">
+      <div className="input-group">
+        <p>
+          <label htmlFor="initial-investment">Initial Investment</label>
+          <input
+            type="number"
+            id="initial-investment"
+            value={userInput.initialInvestment}
+            onChange={(event) =>
+              onChange("initialInvestment", event.target.value)
+            }
+          />
+        </p>
+        <p>
+          <label htmlFor="annual-investment">Annual Investment</label>
+          <input
+            type="number"
+            id="annual-investment"
+            value={userInput.annualInvestment}
+            onChange={(event) =>
+              onChange("annualInvestment", event.target.value)
+            }
+          />
+        </p>
+        <p>
+          <label htmlFor="returns">Expected Return</label>
+          <input
+            type="number"
+            id="returns"
+            value={userInput.expectedReturn}
+            onChange={(event) => onChange("expectedReturn", event.target.value)}
+          />
+        </p>
+        <p>
+          <label htmlFor="duration">Duration</label>
+          <input
+            type="number"
+            id="duration"
+            value={userInput.duration}
+            onChange={(event) => onChange("duration", event.target.value)}
+          />
+        </p>
+      </div>
+    </section>
   );
 }
