@@ -4,6 +4,27 @@ export default function Results({
   returns,
   duration,
 }) {
+  let data = {
+    initialInvestment: initialInvestment,
+    annualInvestment: annualInvestment,
+    expectedReturn: returns,
+    duration: duration,
+  };
+
+  let lineResults = [];
+
+  if (duration > 0) {
+    lineResults = Array.from({ length: duration }, (_, i) => (
+      <tr key={i}>
+        <td>{i + 1}</td>
+        <td>$2100.00</td>
+        <td>$1000.00</td>
+        <td>$210.00</td>
+        <td>$3310.00</td>
+      </tr>
+    ));
+  }
+
   return (
     <div>
       <table id="result">
@@ -16,29 +37,7 @@ export default function Results({
             <th>Invested Capital</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>$1000.00</td>
-            <td>$1000.00</td>
-            <td>$100.00</td>
-            <td>$2100.00</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>$2100.00</td>
-            <td>$1000.00</td>
-            <td>$210.00</td>
-            <td>$3310.00</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>$3310.00</td>
-            <td>$1000.00</td>
-            <td>$331.00</td>
-            <td>$4641.00</td>
-          </tr>
-        </tbody>
+        <tbody>{lineResults}</tbody>
       </table>
     </div>
   );
