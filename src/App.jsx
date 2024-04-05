@@ -25,6 +25,9 @@ function App() {
           duration={duration}
         />
         duration: {duration}
+        annualInvestment: {annualInvestment}
+        returns: {returns}
+        initialInvestment: {initialInvestment}
       </main>
     </>
   );
